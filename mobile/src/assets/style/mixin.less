@@ -1,0 +1,53 @@
+// 上边框
+.b_b{
+  background-image: -webkit-linear-gradient(bottom,rgba(229, 229, 229,.5),rgba(231, 231, 231,.5) 30%,transparent 50%);
+  background-image:  linear-gradient(0deg,rgba(229, 229, 229,.5),rgba(231, 231, 231,.5) 30%,transparent 50%);
+  background-size: 120% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+// 下边框
+.b_t{
+  background-image: -webkit-linear-gradient(top,rgba(229, 229, 229,.5),rgba(231, 231, 231,.5) 30%,transparent 50%);
+  background-image:  linear-gradient(0deg,rgba(229, 229, 229,.5),rgba(231, 231, 231,.5) 30%,transparent 50%);
+  background-size: 120% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+// 文字超出两行隐藏
+.textover2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+// 文字超出一行隐藏
+.textover1{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+// 开启ios滚动平滑
+html,
+body {
+  // -webkit-overflow-scrolling: touch;
+}
+// 清浮动
+.clearfix{
+  &:after{
+    content:'';
+    height: 0;
+    display: block;
+    overflow: hidden;
+    clear: both;
+  }
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.shadow{
+  box-shadow: 0 3px 5px 0px rgba(0, 0, 0, .1);
+}
