@@ -5,8 +5,11 @@
   box-shadow: 0 3px 5px 0px rgba(0, 0, 0, .1);
   background-color:#fafafa;
   color: #333;
-
 }
+.mint-header.is-fixed{
+ z-index: 2;
+}
+
 .mint-tabbar{
   box-shadow: 0 3px 5px 3px rgba(0, 0, 0, .1);
   background-image: none;
