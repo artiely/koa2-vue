@@ -1,10 +1,10 @@
-// import * as types from '../mutation-types'
+import * as types from '../mutation-types'
 // import api from '@/api/api'
 // import Cookies from 'js-cookie'
 
 // initial state
 const state = {
-  userInfo: {} // 登录用户信息
+  articleDetail: {} // 登录用户信息
 }
 
 // getters
@@ -12,12 +12,9 @@ const getters = {}
 
 // mutations
 const mutations = {
-  // [types.GET_USER_INFO](state, payload) {
-  //   state.userInfo = {
-  //     ...state.userInfo,
-  //     ...payload
-  //   }
-  // }
+  [types.ARTICLE_DETAIL](state, payload) {
+    state.articleDetail = {...payload}
+  }
 }
 
 // actions

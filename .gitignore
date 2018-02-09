@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 /test/unit/coverage/
 /test/e2e/reports/
-/crawler/config.js
+/server/crawler/config.js
 selenium-debug.log
 
 # Editor directories and files
