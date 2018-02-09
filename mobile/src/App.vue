@@ -37,6 +37,7 @@ export default {
 </script>
 
 <style lang="less">
+@import './assets/style/juejin.css';
 body{
   background: rgb(238, 252, 234);
 }
@@ -45,9 +46,6 @@ body{
   text-align: center;
   padding: 15px;
   color: #777;
-}
-.index {
-  // background: rgb(241, 62, 62);
 }
 .find {
   background: rgb(62, 241, 151);
@@ -58,7 +56,5 @@ body{
 .user {
   background: rgb(241, 223, 62);
 }
-.detail {
-  background: rgb(38, 194, 6);
-}
+
 </style>

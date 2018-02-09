@@ -10,6 +10,7 @@ import VueLazyload from 'vue-lazyload'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // require styles
 import 'swiper/dist/css/swiper.css'
+import store from './vuex/index'
 
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 Vue.use(VueLazyload)
@@ -23,6 +24,7 @@ Vue.use(VueLazyload, {
 })
 
 var isDebugMode = process.env.NODE_ENV !== 'production'
+console.log('123------', isDebugMode, store)
 Vue.config.debug = isDebugMode
 Vue.config.devtools = isDebugMode
 Vue.config.productionTip = isDebugMode
@@ -31,6 +33,7 @@ Vue.config.productionTip = isDebugMode
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

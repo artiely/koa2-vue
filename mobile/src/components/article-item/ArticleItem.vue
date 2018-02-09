@@ -2,11 +2,13 @@
   <div>
     <div v-for="(i,k) in list" :key="k" class="article-top" @click="toDetail(i)">
       <h3 class="tit">{{i.title}}</h3>
-      <div class="clearfix"><span class="user-icon fl"></span> <span v-if="i.createByUserName" class="author fl">{{i.createByUserName}}</span></div>
-      <p class="des" >{{i.content}}</p>
+      <div class="clearfix"><span class="user-icon fl"><img :src="i.avatar" alt=""></span> <span v-if="i.author" class="author fl">{{i.author}}</span>
+       <span class="create-time fr" v-if="i.create_time">{{i.create_time}}</span>
+      </div>
+      <p class="des" >{{i._des}}</p>
       <p class="info">
-        <!-- <span class="crumbs">系统 / 技术部 / 外设</span> -->
-        <span class="create-time" v-if="i.createDate">{{i.createDate}}</span></p>
+        <span class="crumbs"><span class="tag" v-for="tag in i.tags" :key="tag">{{tag}}</span></span>
+       </p>
     </div>
   </div>
 </template>
@@ -33,10 +35,10 @@ export default {
       return this.data.map(v => {
         var newstr = delHtmlTag(v.content)
         newstr = newstr.replace(/&nbsp;/g, '')
-        v.content = newstr === '' ? '点击查看详情' : newstr
-        var str = v.content
+        v._des = newstr === '' ? '点击查看详情' : newstr
+        var str = v._des
         str = str.replace(/\s+width="[^"]*"/ig, '')
-        v.content = str.replace(/\s+height="[^"]*"/ig, '')
+        v._des = str.replace(/\s+height="[^"]*"/ig, '')
         return v
       })
     }
@@ -46,8 +48,6 @@ export default {
   },
   methods: {
     toDetail(i, event) {
-      var s = JSON.stringify(i)
-      localStorage.setItem('_article', s)
       this.$emit('to-detail', i, event)
     }
   },
@@ -57,7 +57,7 @@ export default {
 }
 </script>
 <style scoped lang="less">
-@import "../../assets/style/mixin.less";
+@import '../../assets/style/mixin.less';
 .article-top {
   padding: 16px 8px;
   background: #fff;
@@ -65,6 +65,17 @@ export default {
   border-radius: 4px;
   margin: 10px auto;
   line-height: 1.5;
+  .tag {
+    background: #eee;
+    padding: 2px 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+  .create-time {
+    float: right;
+    color: #999;
+  }
   .user-icon {
     display: inline-block;
     height: 15px;
@@ -73,6 +84,9 @@ export default {
     overflow: hidden;
     background: #ddd;
     margin-right: 6px;
+    img {
+      width: 100%;
+    }
   }
   .author {
     font-size: 12px;
@@ -99,9 +113,6 @@ export default {
     .clearfix;
     .crumbs {
       float: left;
-    }
-    .create-time {
-      float: right;
     }
   }
 }
