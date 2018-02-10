@@ -1,10 +1,7 @@
 [
   {
     "groupId": "5591",
-<<<<<<< HEAD
     "title": "送福利，祝大家2018年元旦快乐",
-=======
->>>>>>> 21a7f5745c996cecf8aeeca73c110757ad875551
     "links": [
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/02/01.jpg",
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/02/02.jpg",
@@ -16,7 +13,6 @@
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/02/08.jpg",
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/02/09.jpg",
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/02/10.jpg"
-<<<<<<< HEAD
     ],
     "poster":
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/02/limg.jpg"
@@ -24,12 +20,6 @@
   {
     "groupId": "5590",
     "title": "Merry Christmas 圣诞的福利",
-=======
-    ]
-  },
-  {
-    "groupId": "5590",
->>>>>>> 21a7f5745c996cecf8aeeca73c110757ad875551
     "links": [
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/01/01.jpg",
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/01/02.jpg",
@@ -45,7 +35,6 @@
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/01/12.jpg",
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/01/13.jpg",
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/01/14.jpg"
-<<<<<<< HEAD
     ],
     "poster":
       "http://mm.chinasareview.com/wp-content/uploads/2017a/08/01/limg.jpg"
@@ -719,8 +708,5 @@
     ],
     "poster":
       "http://mm.chinasareview.com/wp-content/uploads/2017a/05/18/limg.jpg"
-=======
-    ]
->>>>>>> 21a7f5745c996cecf8aeeca73c110757ad875551
   }
 ]
