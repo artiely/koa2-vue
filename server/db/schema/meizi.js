@@ -6,6 +6,8 @@ const meiziSchema = new Schema({
   title: String,
   poster: String,
   links: [String],
+  posterKey:String,
+  linksKey:[String],
   groupId: {
     type: String,
     unique: true,
