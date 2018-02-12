@@ -1,6 +1,6 @@
 var proxyList = {
   '/api': {
-    target: 'http://172.16.7.248:8077',
+    target: 'thhp://localhost:3001',
     changeOrigin: true
   }
 }

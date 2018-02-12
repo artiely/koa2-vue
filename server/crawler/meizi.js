@@ -18,12 +18,12 @@ void (async () => {
   // 爬取第一页的链接
   let target = await page.evaluate(() => {
     var _tit = document.querySelectorAll('.tit b')
-    var _poster= document.querySelectorAll('.pic img')
-    let title =[]
-    for(let i=0;i<_tit.length;i++){
-      title.push(_tit[i].innerHTML||'未知')
+    var _poster = document.querySelectorAll('.pic img')
+    let title = []
+    for (let i = 0; i < _tit.length; i++) {
+      title.push(_tit[i].innerHTML)
     }
-    let poster=[]
+    let poster = []
     for (let i = 0; i < _poster.length; i++) {
       poster.push(_poster[i].getAttribute('src') || '')
     }

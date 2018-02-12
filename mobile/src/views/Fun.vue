@@ -12,7 +12,7 @@
           </div>
         </swiper-slide>
         <swiper-slide>
-          <div>
+          <div @click="tomeizi">
             <div class="swiper-icon">
               <i-icon name="icon-tupian1" symbol></i-icon>
             </div>
@@ -28,7 +28,7 @@
           </div>
         </swiper-slide>
         <swiper-slide>
-          <div>
+          <div @click="toshijue">
             <div class="swiper-icon">
               <i-icon name="icon-sheji" symbol></i-icon>
             </div>
@@ -36,27 +36,29 @@
           </div>
         </swiper-slide>
       </swiper>
-      <div v-for="item in data" :key="item.groupId" class="pic-item">
-          <img :src="item.poster" alt="">
-          <p v-if="item.title">{{item.title}}</p>
-        </div>
-      <!-- <p v-for="i in 20" :key="i">{{i}}fun</p> -->
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import data from '../assets/meizi.json'
 export default {
   name: 'fun',
   data() {
     return {
-      data: data,
       swiperOption: {
         slidesPerView: 3,
         spaceBetween: 0,
         freeMode: true
       }
+    }
+  },
+  methods: {
+    toshijue() {
+      this.$router.push('/shijue')
+    },
+    tomeizi() {
+      this.$router.push('/meizi')
     }
   }
 }

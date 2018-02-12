@@ -11,6 +11,9 @@ const Detail = () => import('@/views/Detail')
 const Login = () => import('@/views/Login')
 const Register = () => import('@/views/Register')
 
+const Shijue = () => import('@/views//fun/Shijue')
+const Meizi = () => import('@/views//fun/Meizi')
+
 Vue.use(Router)
 Router.prototype.back = function() {
   this.isBack = true
@@ -33,33 +36,52 @@ const router = new Router({
           path: '/index',
           name: 'Index',
           component: Index
-        }, {
+        },
+        {
           path: '/chat',
           name: 'Chat',
           component: Chat
-        }, {
+        },
+        {
           path: '/find',
           name: 'Find',
           component: Find
-        }, {
+        },
+        {
           path: '/fun',
           name: 'Fun',
-          component: Fun
-        }, {
+          component: Fun,
+          children: [
+            {
+              path: '/shijue',
+              name: 'Shijue',
+              component: Shijue
+            },
+            {
+              path: '/meizi',
+              name: 'Meizi',
+              component: Meizi
+            }
+          ]
+        },
+        {
           path: '/user',
           name: 'User',
           component: User
         }
       ]
-    }, {
+    },
+    {
       path: '/detail',
       name: 'Detail',
       component: Detail
-    }, {
+    },
+    {
       path: '/login',
       name: 'Login',
       component: Login
-    }, {
+    },
+    {
       path: '/register',
       name: 'Register',
       component: Register
