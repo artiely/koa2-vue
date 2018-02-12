@@ -11,7 +11,6 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 // require styles
 import 'swiper/dist/css/swiper.css'
 import store from './vuex/index'
-
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 Vue.use(VueLazyload)
 Vue.use(VueScroller)

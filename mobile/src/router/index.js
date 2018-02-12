@@ -11,8 +11,10 @@ const Detail = () => import('@/views/Detail')
 const Login = () => import('@/views/Login')
 const Register = () => import('@/views/Register')
 
-const Shijue = () => import('@/views//fun/Shijue')
-const Meizi = () => import('@/views//fun/Meizi')
+const Shijue = () => import('@/views/fun/Shijue')
+const Meizi = () => import('@/views/fun/Meizi')
+const ShijueDetail = () => import('@/views/ShijueDetail')
+const MeiziDetail = () => import('@/views/MeiziDetail')
 
 Vue.use(Router)
 Router.prototype.back = function() {
@@ -51,6 +53,7 @@ const router = new Router({
           path: '/fun',
           name: 'Fun',
           component: Fun,
+          redirect: '/shijue',
           children: [
             {
               path: '/shijue',
@@ -75,6 +78,16 @@ const router = new Router({
       path: '/detail',
       name: 'Detail',
       component: Detail
+    },
+    {
+      path: '/shijuedetail',
+      name: 'ShijueDetail',
+      component: ShijueDetail
+    },
+    {
+      path: '/meizidetail',
+      name: 'MeiziDetail',
+      component: MeiziDetail
     },
     {
       path: '/login',

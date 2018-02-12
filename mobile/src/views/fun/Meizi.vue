@@ -3,7 +3,7 @@
     <mt-header fixed title="index"></mt-header>
     <div class="page-content">
       <scroller :on-refresh="refresh" :on-infinite="infinite">
-         <div v-for="item in data" :key="item.groupId" class="pic-item">
+        <div v-for="item in data" :key="item.groupId" class="pic-item" @click="toDetail(item)">
           <img :src="item.poster" alt="">
           <p v-if="item.title">{{item.title}}</p>
         </div>
@@ -22,22 +22,20 @@ export default {
     }
   },
   methods: {
+    toshow(item) {
+      this.links = item.links
+      this.popupVisible = true
+    },
     toDetail(detail) {
       this.$store.commit(types.ARTICLE_DETAIL, detail)
-      this.$router.push('/detail')
+      this.$router.push('/meizidetail')
     },
-    refresh() {
-    },
-    infinite() {
-    }
+    refresh() { },
+    infinite() { }
   },
-  created() {
-  }
+  created() { }
 }
 </script>
-<style>
-img{
-  width: 100%;
-  display: block;
-}
+<style lang="less" scoped>
+
 </style>

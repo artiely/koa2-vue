@@ -89,6 +89,12 @@ export default {
         case '/fun':
           this.selected = '4'
           break
+        case '/shijue':
+          this.selected = '4'
+          break
+        case '/meizi':
+          this.selected = '4'
+          break
         case '/user':
           this.selected = '5'
           break

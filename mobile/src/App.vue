@@ -39,7 +39,7 @@ export default {
 <style lang="less">
 @import './assets/style/juejin.css';
 body{
-  background: rgb(238, 252, 234);
+  background: rgb(242, 248, 240);
 }
 .help{
   font-size: 14px;

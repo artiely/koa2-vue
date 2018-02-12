@@ -3,7 +3,7 @@
     <mt-header fixed title="fun"></mt-header>
     <div class="page-content">
       <swiper :options="swiperOption">
-        <swiper-slide>
+        <swiper-slide :class="{'nav-active':path=='/yinshi'}">
           <div>
             <div class="swiper-icon">
               <i-icon name="icon-dianying" symbol></i-icon>
@@ -11,7 +11,7 @@
             <p class="swiper-text">影视</p>
           </div>
         </swiper-slide>
-        <swiper-slide>
+        <swiper-slide :class="{'nav-active':path=='/meizi'}">
           <div @click="tomeizi">
             <div class="swiper-icon">
               <i-icon name="icon-tupian1" symbol></i-icon>
@@ -19,7 +19,7 @@
             <p class="swiper-text">福利</p>
           </div>
         </swiper-slide>
-        <swiper-slide>
+        <swiper-slide :class="{'nav-active':path=='/news'}">
           <div>
             <div class="swiper-icon">
               <i-icon name="icon-xinwen" symbol></i-icon>
@@ -27,16 +27,18 @@
             <p class="swiper-text">新闻</p>
           </div>
         </swiper-slide>
-        <swiper-slide>
+        <swiper-slide :class="{'nav-active':path=='/shijue'}">
           <div @click="toshijue">
             <div class="swiper-icon">
-              <i-icon name="icon-sheji" symbol></i-icon>
+              <i-icon name="icon-chuangyi" symbol></i-icon>
             </div>
             <p class="swiper-text">设计</p>
           </div>
         </swiper-slide>
       </swiper>
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -47,10 +49,15 @@ export default {
   data() {
     return {
       swiperOption: {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 0,
         freeMode: true
       }
+    }
+  },
+  computed: {
+    path() {
+      return this.$route.path
     }
   },
   methods: {
@@ -63,7 +70,10 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
+.fun .nav-active {
+  background: #ddd;
+}
 .swiper-icon {
   font-size: 24px;
   text-align: center;
@@ -72,20 +82,16 @@ export default {
   margin: 0;
   text-align: center;
   font-size: 14px;
-  color: #999;
+  color: #333;
 }
-.pic-item {
-  width: 100%;
-  padding: 6px;
-  box-sizing: border-box;
-  img {
-    width: 100%;
-  }
-}
+
 .swiper-slide {
   text-align: center;
   width: 30%;
   height: 60px;
   background: #eee;
+}
+.fun .page-content .page-content {
+  top: 60px;
 }
 </style>

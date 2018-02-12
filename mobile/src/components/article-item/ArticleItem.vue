@@ -61,10 +61,11 @@ export default {
 .article-top {
   padding: 16px 8px;
   background: #fff;
-  box-shadow: 1px 1px 6px rgba(175, 236, 223, 0.2);
+  box-shadow: 0px 3px 5px 0 rgba(205, 207, 207, 0.151);
   border-radius: 4px;
   margin: 10px auto;
   line-height: 1.5;
+  width:90%;
   .tag {
     background: #eee;
     padding: 2px 4px;

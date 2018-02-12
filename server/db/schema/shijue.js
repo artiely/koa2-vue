@@ -5,8 +5,12 @@ const Mixed = Schema.Types.Mixed
 const shijueSchema = new Schema({
   title: String,
   poster: String,
-  content:String,
+  content: String,
   posterKey: String,
+  cover: {
+    type: Boolean, // 这其实是一个多余字段（用来判断内容的img是否替换过）
+    default: false,
+  },
   id: {
     type: String,
     unique: true,
