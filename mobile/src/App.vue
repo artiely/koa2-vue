@@ -38,10 +38,10 @@ export default {
 
 <style lang="less">
 @import './assets/style/juejin.css';
-body{
+body {
   background: rgb(242, 248, 240);
 }
-.help{
+.help {
   font-size: 14px;
   text-align: center;
   padding: 15px;
@@ -53,8 +53,4 @@ body{
 .order {
   background: rgb(14, 80, 110);
 }
-.user {
-  background: rgb(241, 223, 62);
-}
-
 </style>
