@@ -1,7 +1,7 @@
 .RouterView {
   position: absolute; 
   height: 100%;
-  transition: all 0.28s;
+  transition: all .32s linear;
   width: 100%;
   top: 0;
   left: 0;
@@ -10,23 +10,31 @@
   background: transparent;
   /*  解决了ios下头脚拉动错误 */
   overflow: hidden; 
-  transform: translateZ(0px);
+  transform: translate3d(0,0,0);
+  -webkit-backface-visibility:hidden; /* 隐藏转换的元素的背面   */
+  -webkit-transform-style: preserve-3d
+
 }
 
 .slide-left-enter {
-  opacity: 0;
-  transform: translate(100%, 0);
+  opacity: 0.5;
+  transform: translate3d(100%, 0,0);
+
 }
 .slide-right-enter {
-  opacity: 0;
-  transform: translate(0, 0);
+  opacity: 0.5;
+  transform: translate3d(-100%, 0,0);
+
 }
 .slide-right-leave-active {
-  opacity: 1;
-  transform: translate(100%, 0);
+  opacity: .5;
+  transform: translate3d(0, 0,0);
+
 }
 .slide-left-leave-active {
-  transform: translate(0, 0);
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+
 }
 
 .enter-enter {

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- <mt-header fixed title="固定在顶部"></mt-header> -->
-    <transition :name="transitionName" >
+    <transition :name="transitionName" appear >
       <keep-alive>
         <router-view class="RouterView" />
       </keep-alive>

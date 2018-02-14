@@ -1,6 +1,6 @@
 <template>
   <div class="find">
-    <mt-header fixed title="find"></mt-header>
+    <mt-header  title="find"></mt-header>
     <div class="page-content">
       <p v-for="i in 20" :key="i">{{i}}find</p>
     </div>

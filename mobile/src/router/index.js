@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// const HelloWorld = () => import('@/components/HelloWorld')
 const Home = () => import('@/views/Home')
 const Index = () => import('@/views/Index')
 const Chat = () => import('@/views/Chat')
@@ -19,9 +18,7 @@ const MeiziDetail = () => import('@/views/MeiziDetail')
 Vue.use(Router)
 Router.prototype.back = function() {
   this.isBack = true
-  window
-    .history
-    .go(-1)
+  window.history.go(-1)
 }
 const router = new Router({
   scrollBehavior(to, from, savedPosition) {

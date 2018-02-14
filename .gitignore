@@ -9,6 +9,7 @@ yarn-error.log*
 /server/crawler/config.js
 /server/task/qiniu/config.js
 selenium-debug.log
+README.md
 
 # Editor directories and files
 .idea

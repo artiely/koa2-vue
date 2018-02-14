@@ -41,6 +41,9 @@ export default {
 body {
   background: rgb(242, 248, 240);
 }
+.index {
+  background: rgb(242, 248, 240);
+}
 .help {
   font-size: 14px;
   text-align: center;

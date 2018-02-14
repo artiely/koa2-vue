@@ -60,7 +60,7 @@ npm i babel-polyfill
 ...
 
 ```
-4. 我们对vue-cli做简单修改,方便开发
+4.我们对vue-cli做简单修改,方便开发
 > 为了方便手机端调试 为了让vue-cli自动以本机ip启动
 ```
 # 安装address模块
@@ -93,6 +93,73 @@ src
   -vuex // 状态
   -static //资源(已编译)
 ```
+## 页面及路由搭建
+views 下创建几个页面
+```
+views
+  -Home.vue #主页
+  -Index.vue #首页
+  -Chat.vue 
+  -Fun.vue 
+  -User.vue
+  ...
+```
+router/index.js
+```
+import Vue from 'vue'
+import Router from 'vue-router'
+const Home = () => import('@/views/Home')
+const Index = () => import('@/views/Index')
+const Chat = () => import('@/views/Chat')
+const Find = () => import('@/views/Find')
+const Fun = () => import('@/views/Fun')
+const User = () => import('@/views/User')
+
+Vue.use(Router)
+
+const router = new Router({
+  scrollBehavior(to, from, savedPosition) {
+    return {x: 0, y: 0}
+  },
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,
+      redirect: '/index',
+      children: [
+        {
+          path: '/index',
+          name: 'Index',
+          component: Index
+        },
+        {
+          path: '/chat',
+          name: 'Chat',
+          component: Chat
+        },
+        {
+          path: '/user',
+          name: 'User',
+          component: User
+        }
+      ]
+    },
+    {
+      path: '/detail',
+      name: 'Detail',
+      component: Detail
+    },
+   ...
+  ]
+})
+
+
+export default router
+
+```
+
+
 
 
 

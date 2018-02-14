@@ -8,6 +8,11 @@ html,body {
   margin: 0;
   font-family: "microsoft Yahei", "Avenir", Helvetica, Arial, sans-serif
 }
+body *{
+  -webkit-backface-visibility: hidden;
+  backface-visibility:hidden; /* 隐藏转换的元素的背面   */
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 .page-content {
   position: absolute;
   top: 40px;
