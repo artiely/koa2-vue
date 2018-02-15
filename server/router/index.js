@@ -1,15 +1,33 @@
-var Koa = require('koa')
-var Router = require('koa-router')
+const Router = require('koa-router')
+const router = new Router()
 const mongoose = require('mongoose')
-const Shijue = mongoose('Shijue')
+const Shijue = mongoose.model('Shijue')
+const Juejin = mongoose.model('Article')
 
-var app = new Koa()
-var router = new Router()
+router.get('/api/shijue/:page/:limit', async (ctx, next) => {
+  var page = ctx.params.page || 1
+  var limit = Number(ctx.params.limit) || 10
 
-router.get('/shijue', async (ctx, next) => {
-  // ctx.router available
-  const shijue = await Shijue.find({}).exec()
-  ctx.success({code: 0, data: shijue})
+  const shijue = await Shijue.find({})
+    .skip((page - 1) * limit)
+    .limit(limit)
+    .sort({_id: -1})
+    .exec()
+  ctx.status = 200
+  return (ctx.body = {code: 0, data: shijue})
 })
 
-app.use(router.routes()).use(router.allowedMethods())
+router.get('/api/juejin/:page/:limit', async (ctx, next) => {
+  var page = ctx.params.page || 1
+  var limit = Number(ctx.params.limit) || 10
+
+  const juejin = await Juejin.find({})
+    .skip((page - 1) * limit)
+    .limit(limit)
+    .sort({_id: -1})
+    .exec()
+  ctx.status = 200
+  return (ctx.body = {code: 0, data: juejin})
+})
+
+module.exports = router

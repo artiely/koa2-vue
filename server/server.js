@@ -2,42 +2,12 @@ const Koa = require('koa')
 const app = new Koa()
 const serve = require('koa-static')
 const {connect} = require('./db/index')
-var Router = require('koa-router')
-const mongoose = require('mongoose')
-const Shijue = mongoose.model('Shijue')
-const Juejin = mongoose.model('Article')
-var router = new Router()
 
 // 连接数据库
 void (async () => {
   await connect()
 })()
-
-router.get('/api/shijue/:page/:limit', async (ctx, next) => {
-  var page = ctx.params.page || 1
-  var limit = Number(ctx.params.limit) || 10
-
-  const shijue = await Shijue.find({})
-    .skip((page - 1) * limit)
-    .limit(limit)
-    .sort({_id: -1})
-    .exec()
-  ctx.status = 200
-  return (ctx.body = {code: 0, data: shijue})
-})
-
-router.get('/api/juejin/:page/:limit', async (ctx, next) => {
-  var page = ctx.params.page || 1
-  var limit = Number(ctx.params.limit) || 10
-
-  const juejin = await Juejin.find({})
-    .skip((page - 1) * limit)
-    .limit(limit)
-    .sort({_id: -1})
-    .exec()
-  ctx.status = 200
-  return (ctx.body = {code: 0, data: juejin})
-})
+const router = require('./router')
 
 app.use(router.routes()).use(router.allowedMethods())
 // app.use(serve(__dirname + '/dist/', {extensions: ['html']}))
