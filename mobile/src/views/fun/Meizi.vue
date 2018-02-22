@@ -12,13 +12,12 @@
   </div>
 </template>
 <script>
-import data from '../../assets/meizi.json'
 import * as types from '../../vuex/mutation-types'
 export default {
   name: 'shijue',
   data() {
     return {
-      data: data
+      data: []
     }
   },
   methods: {
