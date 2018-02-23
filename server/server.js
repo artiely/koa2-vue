@@ -1,20 +1,32 @@
-const Koa = require('koa')
-const app = new Koa()
-const serve = require('koa-static')
-const {connect} = require('./db/index')
+import {join} from 'path'
+import Koa from 'koa'
+import R from 'ramda'
+import chalk from 'chalk'
+import config from './config'
 
-// 连接数据库
-void (async () => {
-  await connect()
-})()
-const router = require('./router')
+const MIDDLEWARES = ['db', 'router']
 
-app.use(router.routes()).use(router.allowedMethods())
-// app.use(serve(__dirname + '/dist/', {extensions: ['html']}))
-app.listen(3001, function(err) {
-  if (err) {
-    console.log(err)
-  } else {
-    console.log('启动成功:3001')
-  }
-})
+const useMiddlewares = app => {
+  R.map(
+    R.compose(R.forEachObjIndexed(e => e(app)), require, name =>
+      join(__dirname, `./middleware/${name}`)
+    )
+  )(MIDDLEWARES)
+}
+
+async function start() {
+  const app = new Koa()
+  const {port} = config
+
+  await useMiddlewares(app)
+
+  const server = app.listen(port, () => {
+    console.log(
+      process.env.NODE_ENV === 'development'
+        ? `Open ${chalk.green('http://localhost:' + port)}`
+        : `App listening on port ${port}`
+    )
+  })
+}
+
+start()
