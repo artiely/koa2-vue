@@ -12,7 +12,7 @@
 import ArticleItem from '../components/article-item/ArticleItem'
 // import data from '../assets/juejin-like.json'
 import * as types from '../vuex/mutation-types'
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   components: {
     ArticleItem
@@ -33,18 +33,32 @@ export default {
       this.$router.push('/detail')
     },
     getData(cb) {
-      axios.get(`/api/juejin/${this.params.page}/${this.params.limit}`).then(res => {
+      void (async() => {
+        const res = await this.$api.GET_JUEJIN(this.params)
         if (this.params.page === 1) {
-          this.data = res.data.data
+          this.data = res.data
           this.params.page++
         } else {
-          if (res.data.data.length > 0) {
-            this.data = this.data.concat(res.data.data)
+          if (res.data.length > 0) {
+            this.data = this.data.concat(res.data)
             this.params.page++
           }
         }
         cb && cb()
-      })
+      })()
+
+      // axios.get(`/api/v0/juejin/${this.params.page}/${this.params.limit}`).then(res => {
+      //   if (this.params.page === 1) {
+      //     this.data = res.data.data
+      //     this.params.page++
+      //   } else {
+      //     if (res.data.data.length > 0) {
+      //       this.data = this.data.concat(res.data.data)
+      //       this.params.page++
+      //     }
+      //   }
+      //   cb && cb()
+      // })
     },
     refresh(done) {
       this.params.page = 1

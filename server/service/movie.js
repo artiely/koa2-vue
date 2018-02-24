@@ -2,9 +2,8 @@ import mongoose from 'mongoose'
 
 const Movie = mongoose.model('Movie')
 
-export const getAllMovies = async (type, year) => {
-  let query = {}
-
+export const getAllMovies = async (type, year,page,limit) => {
+  var query ={}
   if (type) {
     query.movieTypes = {$in: [type]}
   }
@@ -12,7 +11,10 @@ export const getAllMovies = async (type, year) => {
     query.year = year
   }
 
-  const movies = await Movie.find(query)
+  const movies = await Movie.find(query).skip((page - 1) * limit)
+    .limit(limit)
+    .sort({_id: -1})
+    .exec()
 
   return movies
 }

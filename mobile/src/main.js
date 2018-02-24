@@ -12,6 +12,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 // require styles
 import 'swiper/dist/css/swiper.css'
 import store from './vuex/index'
+import api from './api'
+// import 'dplayer/dist/DPlayer.min.js'
+Vue.use(api)
 // import './assets/style/animate.css'
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 Vue.use(VueLazyload)

@@ -1,5 +1,5 @@
 var proxyList = {
-  '/api': {
+  '/api/v0': {
     target: 'http://localhost:3001',
     changeOrigin: true
   }

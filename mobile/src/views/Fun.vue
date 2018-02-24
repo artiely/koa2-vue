@@ -3,8 +3,8 @@
     <mt-header fixed title="fun"></mt-header>
     <div class="page-content">
       <swiper :options="swiperOption">
-        <swiper-slide :class="{'nav-active':path=='/yinshi'}">
-          <div>
+        <swiper-slide :class="{'nav-active':path=='/movie'}">
+          <div  @click="tomovie">
             <div class="swiper-icon">
               <i-icon name="icon-dianying" symbol></i-icon>
             </div>
@@ -66,6 +66,9 @@ export default {
     },
     tomeizi() {
       this.$router.push('/meizi')
+    },
+    tomovie() {
+      this.$router.push('/movie')
     }
   }
 }

@@ -4,16 +4,18 @@ import {getAllMovies, getSingleMovie, getRelativeMovies} from '../service/movie'
 
 @Controller('/api/v0/movies')
 export default class MovieRouter {
-  @Get('/')
+  @Get('/:page/:limit')
   @Log
   async getMovieList(ctx, next) {
     const type = ctx.query.type
     const year = ctx.query.year
-    const movies = await getAllMovies(type, year)
+    const page = ctx.query.page
+    const limit = ctx.query.limit
+    const movies = await getAllMovies(type, year,page,limit)
 
     ctx.body = {
       data: movies,
-      success: true,
+      code: 0,
     }
   }
 

@@ -2,10 +2,10 @@ import axios from 'axios'
 import router from '@/router'
 import Cookies from 'js-cookie'
 import isJSON from 'is-json'
-export default function fetch (options) {
+export default function fetch(options) {
   return new Promise((resolve, reject) => {
     const instance = axios.create({
-      baseURL: '/PT',
+      baseURL: '',
       headers: {},
       transformResponse: [(data) => {
         var flag = isJSON(data)

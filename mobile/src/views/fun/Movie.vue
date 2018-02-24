@@ -2,10 +2,10 @@
   <div class="index">
     <mt-header fixed title="index"></mt-header>
     <div class="page-content" style="top:60px">
-      <scroller :on-refresh="refresh" :on-infinite="infinite" noDataText="没有啦哟 (#^.^#)">
-        <div class="shijue-item" v-for="(item,i) in data" :key="i" @click="toDetail(item)">
-         <img :src="'http://qiniu.08tj.com/'+item.posterKey" alt="">
-         <p> {{item.title}}</p>
+      <scroller :on-refresh="refresh" :on-infinite="infinite">
+        <div v-for="item in data" :key="item.groupId" class="pic-item" @click="toDetail(item)">
+          <img :src="'http://qiniu.08tj.com/'+item.posterKey" alt="">
+          <p v-if="item.title">{{item.title}}</p>
         </div>
       </scroller>
     </div>
@@ -25,9 +25,13 @@ export default {
     }
   },
   methods: {
+    toshow(item) {
+      this.links = item.links
+      this.popupVisible = true
+    },
     toDetail(detail) {
       this.$store.commit(types.ARTICLE_DETAIL, detail)
-      this.$router.push('/shijuedetail')
+      this.$router.push('/moviedetail')
     },
     refresh(done) {
       this.params.page = 1
@@ -38,8 +42,8 @@ export default {
     },
     getData(cb) {
       void (
-        async() => {
-          const res = await this.$api.GET_SHIJUE(this.params)
+        async () => {
+          const res = await this.$api.GET_MOVIES(this.params)
           if (this.params.page === 1) {
             this.data = res.data
             this.params.page++
@@ -54,18 +58,9 @@ export default {
       )()
     }
   },
-  created() {
-  }
+  created() { }
 }
 </script>
-<style lang="less">
-.shijue-item {
-  padding: 6px;
-  box-sizing: border-box;
-  background: #fff;
-}
-img {
-  width: 100%;
-  display: block;
-}
+<style lang="less" scoped>
+
 </style>
