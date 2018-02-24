@@ -19,8 +19,8 @@ Vue.use(VueScroller)
 Vue.use(Ivue)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: 'dist/error.png',
-  loading: 'dist/loading.gif',
+  error: 'dist/logo.png',
+  loading: 'dist/logo.png',
   attempt: 1
 })
 var isDebugMode = process.env.NODE_ENV !== 'production'

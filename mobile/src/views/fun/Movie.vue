@@ -3,8 +3,8 @@
     <mt-header fixed title="index"></mt-header>
     <div class="page-content" style="top:60px">
       <scroller :on-refresh="refresh" :on-infinite="infinite">
-        <div v-for="item in data" :key="item.groupId" class="pic-item" @click="toDetail(item)">
-          <img :src="'http://qiniu.08tj.com/'+item.posterKey" alt="">
+        <div  v-for="item in data" :key="item.groupId" class="pic-item" @click="toDetail(item)">
+          <img v-lazy="'http://qiniu.08tj.com/'+item.posterKey" alt="">
           <p v-if="item.title">{{item.title}}</p>
         </div>
       </scroller>

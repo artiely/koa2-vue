@@ -3,8 +3,8 @@
     <mt-header fixed title="index"></mt-header>
     <div class="page-content" style="top:60px">
       <scroller :on-refresh="refresh" :on-infinite="infinite">
-        <div v-for="item in data" :key="item.groupId" class="pic-item" @click="toDetail(item)">
-          <img :src="item.poster" alt="">
+        <div  v-for="item in data" :key="item.groupId" class="pic-item" @click="toDetail(item)">
+          <img v-lazy="item.poster" alt="">
           <p v-if="item.title">{{item.title}}</p>
         </div>
       </scroller>
@@ -39,6 +39,9 @@ export default {
     },
     infinite(done) {
       this.getData(() => { done(true) })
+    },
+    _canvasLoad(data) {
+
     },
     getData(cb) {
       void (

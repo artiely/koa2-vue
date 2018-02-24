@@ -3,8 +3,8 @@
     <mt-header fixed title="index"></mt-header>
     <div class="page-content" style="top:60px">
       <scroller :on-refresh="refresh" :on-infinite="infinite" noDataText="没有啦哟 (#^.^#)">
-        <div class="shijue-item" v-for="(item,i) in data" :key="i" @click="toDetail(item)">
-         <img :src="'http://qiniu.08tj.com/'+item.posterKey" alt="">
+        <div  class="shijue-item" v-for="(item,i) in data" :key="i" @click="toDetail(item)">
+         <img v-lazy="'http://qiniu.08tj.com/'+item.posterKey" alt="">
          <p> {{item.title}}</p>
         </div>
       </scroller>
