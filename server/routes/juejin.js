@@ -8,7 +8,7 @@ export default class JuejinRouter {
   @Log
   async getJuejinList(ctx, next) {
     const page = ctx.params.page
-    const limit = NUmber(ctx.params.limit)
+    const limit = Number(ctx.params.limit)
     const juejin = await getJuejin(page, limit)
 
     ctx.body = {data: juejin, code: 0}

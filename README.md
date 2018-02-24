@@ -1,3 +1,6 @@
+
+小前端从无到有实战系列
+> 包含前后端数据库及爬虫 包含前后端分离和服务端渲染 vue ,react,koa2,mongodb 
 > 开发中...
 
 服务端 koa2系列  
@@ -9,8 +12,6 @@
 pc端 vue系列
 
 
-小前端从无到有实战系列
-> 包含前后端数据库及爬虫 包含前后端分离和服务端渲染 vue ,react,koa2,mongodb 
 ## 知识点
 vue一个渐进式web框架
 
@@ -24,9 +25,11 @@ koa2 nodejs web开发框架
 
 mongodb 数据库
 
-mongoose 
+mongoose 数据库模型
 
-puppeteer 
+puppeteer 爬虫
+
+七牛上传
 
 开发模式包含前后端分离和服务端渲染
 
