@@ -9,8 +9,8 @@ export default class MovieRouter {
   async getMovieList(ctx, next) {
     const type = ctx.query.type
     const year = ctx.query.year
-    const page = ctx.query.page
-    const limit = ctx.query.limit
+    const page = ctx.params.page
+    const limit = Number(ctx.params.limit)
     const movies = await getAllMovies(type, year,page,limit)
 
     ctx.body = {
