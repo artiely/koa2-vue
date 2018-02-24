@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import './assets/style/main.less'
 import Ivue from './package/index'
-// import vueg from './package/erouter'
 import VueScroller from 'vue-scroller'
 import VueLazyload from 'vue-lazyload'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -13,9 +12,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import store from './vuex/index'
 import api from './api'
-// import 'dplayer/dist/DPlayer.min.js'
 Vue.use(api)
-// import './assets/style/animate.css'
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 Vue.use(VueLazyload)
 Vue.use(VueScroller)
@@ -26,9 +23,7 @@ Vue.use(VueLazyload, {
   loading: 'dist/loading.gif',
   attempt: 1
 })
-// Vue.use(vueg, router) // ←注意这一句应该在router实例化之后
 var isDebugMode = process.env.NODE_ENV !== 'production'
-console.log('123------', isDebugMode, store)
 Vue.config.debug = isDebugMode
 Vue.config.devtools = isDebugMode
 Vue.config.productionTip = isDebugMode

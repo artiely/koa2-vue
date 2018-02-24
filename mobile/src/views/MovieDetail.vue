@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-// import 'dplayer'
+/*  global DPlayer:true  */
 export default {
   name: 'detail',
   data() {
@@ -40,33 +40,32 @@ export default {
   },
   activated() {
     this.$nextTick(() => {
-
-    })
-    setTimeout(() => {
-      var player = null
-      const video = `http://qiniu.08tj.com/${this.data.videoKey}`
-      const image = this.data.cover
-      if (!player) {
-        player = new DPlayer({
-          element: document.getElementById('player'),
-          screenshot: true,
-          autoPlay:false,
-          video: {
-            url: video,
-            pic: image,
-            thumbnails: image
-          }
-        })
-      } else {
-        if (player.video.currentSrc !== video) {
-          player.switchVideo({
-            url: video,
-            pic: image,
-            type: 'auto'
+      setTimeout(() => {
+        var player = null
+        const video = `http://qiniu.08tj.com/${this.data.videoKey}`
+        const image = this.data.cover
+        if (!player) {
+          player = new DPlayer({
+            element: document.getElementById('player'),
+            screenshot: true,
+            autoPlay: false,
+            video: {
+              url: video,
+              pic: image,
+              thumbnails: image
+            }
           })
+        } else {
+          if (player.video.currentSrc !== video) {
+            player.switchVideo({
+              url: video,
+              pic: image,
+              type: 'auto'
+            })
+          }
         }
-      }
-    }, 500);
+      }, 500)
+    })
   }
 }
 </script>

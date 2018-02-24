@@ -92,6 +92,9 @@ export default {
         case '/shijue':
           this.selected = '4'
           break
+        case '/movie':
+          this.selected = '4'
+          break
         case '/meizi':
           this.selected = '4'
           break

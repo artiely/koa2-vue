@@ -163,6 +163,12 @@ export default router
 
 ```
 
+> 全局变量eslint报错解决
+
+```
+/*  global DPlayer:true  */
+```
+
 
 
 

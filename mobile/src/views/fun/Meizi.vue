@@ -42,7 +42,7 @@ export default {
     },
     getData(cb) {
       void (
-        async () => {
+        async() => {
           const res = await this.$api.GET_MEIZI(this.params)
           if (this.params.page === 1) {
             this.data = res.data

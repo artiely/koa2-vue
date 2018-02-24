@@ -10,9 +10,7 @@
 </template>
 <script>
 import ArticleItem from '../components/article-item/ArticleItem'
-// import data from '../assets/juejin-like.json'
 import * as types from '../vuex/mutation-types'
-// import axios from 'axios'
 export default {
   components: {
     ArticleItem
@@ -46,19 +44,6 @@ export default {
         }
         cb && cb()
       })()
-
-      // axios.get(`/api/v0/juejin/${this.params.page}/${this.params.limit}`).then(res => {
-      //   if (this.params.page === 1) {
-      //     this.data = res.data.data
-      //     this.params.page++
-      //   } else {
-      //     if (res.data.data.length > 0) {
-      //       this.data = this.data.concat(res.data.data)
-      //       this.params.page++
-      //     }
-      //   }
-      //   cb && cb()
-      // })
     },
     refresh(done) {
       this.params.page = 1
