@@ -2,9 +2,9 @@ import mongoose from 'mongoose'
 import {Controller, Get, Required,Log} from '../decorator/router'
 import {getAllMovies, getSingleMovie, getRelativeMovies} from '../service/movie'
 
-@Controller('/movies')
+@Controller('/api/v0/movies')
 export default class MovieRouter {
-  @Get('/all')
+  @Get('/')
   @Log
   async getMovieList(ctx, next) {
     const type = ctx.query.type

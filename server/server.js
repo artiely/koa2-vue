@@ -14,12 +14,18 @@ const useMiddlewares = app => {
   )(MIDDLEWARES)
 }
 
+// 其实上面的代码就等价于下面 使用ramda将引入与使用结合为一个函数
+//  const {database} = require('./middleware/db')
+//  const {router} = require('./middleware/router')
+
+ 
 async function start() {
   const app = new Koa()
   const {port} = config
-
   await useMiddlewares(app)
-
+  //等价于下面
+  // database(app)
+  // router(app)
   const server = app.listen(port, () => {
     console.log(
       process.env.NODE_ENV === 'development'
