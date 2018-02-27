@@ -16,7 +16,7 @@
           </div>
         </el-table-column>
       </el-table>
-      <el-pagination background layout="prev, pager, next" :total="1000">
+      <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="count">
       </el-pagination>
     </div>
     </el-card>
@@ -70,13 +70,20 @@ export default {
   async asyncData() {
     let res = await axios.get('http://localhost:3001/api/v0/juejin/1/10')
     return {
-      data: res.data.data
+      data: res.data.data,
+      count: res.data.count
     }
   },
   methods: {
     handleClick(data) {
       this.dialogVisible = true
       this.article = data
+    },
+    async handleCurrentChange(val) {
+      console.log(`当前页: ${val}`)
+      let res = await axios.get(`http://localhost:3001/api/v0/juejin/${val}/10`)
+      this.data = res.data.data
+      this.count = res.data.count
     }
   },
   created() { }

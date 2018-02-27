@@ -24,7 +24,10 @@ const useMiddlewares = app => {
 async function start() {
   const app = new Koa()
   const {port} = config
-  app.use(cors())
+  // if (process.env.NODE_ENV === 'development') {
+  //    app.use(cors())
+  // }
+   app.use(cors())
   app.use(serve(resolve(__dirname , '../pc/dist')))
   await useMiddlewares(app)
   //等价于下面

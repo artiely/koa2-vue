@@ -5,16 +5,15 @@
         <el-submenu index="1">
           <div slot="title">
             <i class="el-icon-location"></i>
-            <span slot="title">导航一</span>
+            <span slot="title">充电</span>
           </div>
           <el-menu-item-group>
-            <span slot="title">产品</span>
-            <el-menu-item index="movies">电影预告</el-menu-item>
+            <span slot="title">学习</span>
             <el-menu-item index="article">文章列表</el-menu-item>
-            <el-menu-item index="goods_type">产品分类</el-menu-item>
           </el-menu-item-group>
-          <el-menu-item-group title="工单">
-            <el-menu-item index="order_list">工单列表</el-menu-item>
+          <el-menu-item-group>
+            <span slot="title">娱乐</span>
+            <el-menu-item index="movies">电影预告</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
