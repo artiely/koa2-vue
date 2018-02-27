@@ -1,0 +1,29 @@
+// 文字超出两行隐藏
+.textover2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+// 文字超出一行隐藏
+.textover1{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+// 清浮动
+.clearfix{
+  &:after{
+    content:'';
+    height: 0;
+    display: block;
+    overflow: hidden;
+    clear: both;
+  }
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}

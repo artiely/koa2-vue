@@ -1,0 +1,36 @@
+{
+  "name": "pc",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "artiely <1119696785@qq.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dplayer": "^1.22.2",
+    "element-ui": "^2.2.0",
+    "is-json": "^2.0.1",
+    "js-cookie": "^2.2.0",
+    "nuxt": "^1.0.0",
+    "vue-dplayer": "0.0.9",
+    "vue-lazyload": "^1.2.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/axios": "^5.0.1",
+    "@nuxtjs/proxy": "^1.1.4",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "less": "^3.0.1",
+    "less-loader": "^4.0.5"
+  }
+}

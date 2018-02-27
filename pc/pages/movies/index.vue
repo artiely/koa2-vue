@@ -1,0 +1,96 @@
+<template>
+    <div>
+      <el-row :gutter="10">
+        <el-col :xs="24" :sm="8" :md="6" v-for="o in data" :key="o._id">
+          <el-card :body-style="{ padding: '0px' }" class="card-box" >
+        <div class="img-box" @click="playvideo(o)">
+          <img v-lazy="o.poster" class="image">
+        </div>
+        <div style="padding: 14px;">
+          <span class="textover2">{{o.title}}</span>
+          <div class="bottom clearfix">
+            <!-- <time class="time">{{ currentDate }}</time> -->
+            <el-button type="text" class="button">查看详情</el-button>
+          </div>
+        </div>
+      </el-card>
+        </el-col>
+      </el-row>
+      
+      <el-dialog :visible.sync="dialogVisible" :title="title" width="50%" >
+        <div id="player1" ref="player"></div>
+      </el-dialog>
+    </div>
+</template>
+
+<script>
+import '../../node_modules/dplayer/dist/DPlayer.min.css'
+import axios from 'axios'
+export default {
+  components: {
+  },
+  data() {
+    return {
+      dialogVisible: false,
+      title:''
+    }
+  },
+  async asyncData(){
+   let res =  await axios.get('http://localhost:3001/api/v0/movies/1/10')
+    return {
+        data: res.data.data
+      }
+  },
+  methods: {
+    playvideo(data) {
+      this.dialogVisible = true
+      this.title = data.title
+      setTimeout(() => {
+        var player = null
+        const video = `http://qiniu.08tj.com/${data.videoKey}`
+        const image = `http://qiniu.08tj.com/${data.coverKey}` 
+        if (!player) {
+          player = new DPlayer({
+            element: this.$refs.player,
+            screenshot: true,
+            autoPlay: false,
+            video: {
+              url: video,
+              pic: image,
+              thumbnails: image
+            }
+          })
+        } else {
+          if (player.video.currentSrc !== video) {
+            player.switchVideo({
+              url: video,
+              pic: image,
+              type: 'auto'
+            })
+          }
+        }
+      }, 500)
+    }
+  },
+  created() { }
+}
+</script>
+
+<style>
+.card-box {
+  width: 100%;
+  float: left;
+  margin: 5px;
+  height: 388px;
+  overflow: hidden;
+}
+.img-box {
+  height: 294px;
+  overflow: hidden;
+}
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+</style>
