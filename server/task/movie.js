@@ -5,8 +5,8 @@ const mongoose = require('mongoose')
 const Movie = mongoose.model('Movie')
 
 void (async () => {
-   await connect()
-  const script = resolve(__dirname, '../crawler/latest-list')
+  await connect()
+  const script = resolve(__dirname, '../crawler/trailer-list')
   const child = cp.fork(script, [])
   let invoked = false
 

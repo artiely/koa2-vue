@@ -10,13 +10,13 @@ export const getAllMovies = async (type, year,page,limit) => {
   if (year) {
     query.year = year
   }
-
+  const count = await Movie.count()
   const movies = await Movie.find(query).skip((page - 1) * limit)
     .limit(limit)
     .sort({_id: -1})
     .exec()
 
-  return movies
+  return {movies, count}
 }
 
 export const getRelativeMovies = async movie => {

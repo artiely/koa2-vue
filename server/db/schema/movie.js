@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const Mixed = Schema.Types.Mixed
+const {Mixed,ObjectId} = Schema.Types
 
 const MovieSchema = new mongoose.Schema({
   doubanId: String,
@@ -17,6 +17,12 @@ const MovieSchema = new mongoose.Schema({
   movieTypes: [String],
   pubdate: Mixed,
   tags: Mixed,
+  category: [
+    {
+      type: ObjectId,
+      ref: 'MovieCate', 
+    },
+  ],
   meta: {
     createdAt: {
       type: Date,

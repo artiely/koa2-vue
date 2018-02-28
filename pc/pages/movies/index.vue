@@ -1,6 +1,7 @@
 <template>
     <div>
-      <el-row :gutter="10">
+      <el-card>
+          <el-row :gutter="10">
         <el-col :xs="24" :sm="8" :md="6" v-for="o in data" :key="o._id">
           <el-card :body-style="{ padding: '0px' }" class="card-box" >
         <div class="img-box" @click="playvideo(o)">
@@ -16,6 +17,9 @@
       </el-card>
         </el-col>
       </el-row>
+       <el-pagination background @current-change="handleCurrentChange" layout="prev, pager, next" :total="count">
+      </el-pagination>
+      </el-card>
       
       <el-dialog :visible.sync="dialogVisible" :title="title" width="50%" >
         <div id="player1" ref="player"></div>
@@ -36,12 +40,19 @@ export default {
     }
   },
   async asyncData(){
-   let res =  await axios.get('http://localhost:3001/api/v0/movies/1/10')
+   let res =  await axios.get('http://localhost:3001/api/v0/movies/1/8')
     return {
-        data: res.data.data
+        data: res.data.data,
+        count:res.data.count
       }
   },
   methods: {
+    async handleCurrentChange(val) {
+      console.log(`当前页: ${val}`)
+      let res = await axios.get(`http://localhost:3001/api/v0/movies/${val}/8`)
+      this.data = res.data.data
+      this.count = res.data.count
+    },
     playvideo(data) {
       this.dialogVisible = true
       this.title = data.title

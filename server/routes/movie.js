@@ -11,12 +11,9 @@ export default class MovieRouter {
     const year = ctx.query.year
     const page = ctx.params.page
     const limit = Number(ctx.params.limit)
-    const movies = await getAllMovies(type, year,page,limit)
+    const {movies,count} = await getAllMovies(type, year,page,limit)
 
-    ctx.body = {
-      data: movies,
-      code: 0,
-    }
+    ctx.body = {data: movies, code: 0, count:count}
   }
 
   @Get('/detail/:id')
@@ -30,7 +27,7 @@ export default class MovieRouter {
         movie,
         relativeMovies,
       },
-      success: true,
+      code: 0,
     }
   }
 }

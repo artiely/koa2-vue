@@ -12,6 +12,7 @@ const sleep = time =>
   const browser = await puppeteer.launch({
     args: ['--no-sandbox'],
     dumpio: false,
+    headless:false
   })
 
   const page = await browser.newPage()
@@ -21,12 +22,12 @@ const sleep = time =>
 
   await sleep(3000)
 
-  // await page.waitForSelector('.more')
+  await page.waitForSelector('.more')
 
-  // for (let i = 0; i < 2; i++) {
-  //   await sleep(3000)
-  //   await page.click('.more')
-  // }
+  for (let i = 0; i < 4; i++) {
+    await sleep(5000)
+    await page.click('.more')
+  }
 
   const result = await page.evaluate(() => {
     var $ = window.$
@@ -64,6 +65,7 @@ const sleep = time =>
   })
 
   browser.close()
+  console.log('爬取结束-------------')
 
   process.send({result})
   process.exit(0)

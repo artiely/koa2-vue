@@ -20,7 +20,8 @@
     "nanoid": "^1.0.1",
     "puppeteer": "^1.0.0",
     "qiniu": "^7.1.2",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
