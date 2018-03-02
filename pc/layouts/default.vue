@@ -19,7 +19,7 @@
       </el-menu>
       <el-container>
         <el-header>
-          <span class="icon-expand" @click="changeCollapse">123<i class="iconfont icon-expand-20-copy"></i></span>
+          <span class="icon-expand" @click="changeCollapse"><i class="iconfont icon-xuanxiang"></i></span>
         </el-header>
         <el-main>
           <nuxt />

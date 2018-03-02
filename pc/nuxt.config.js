@@ -15,9 +15,13 @@ module.exports = {
         rel: 'stylesheet',
         href: 'https://unpkg.com/element-ui/lib/theme-chalk/index.css',
       },
+      {
+        rel: 'stylesheet',
+        href: '//at.alicdn.com/t/font_313716_nxy3880fotc07ldi.css',
+      },
     ],
   },
-  css: [{src: '~assets/main.less', lang: 'less'},'~assets/juejin.css'],
+  css: [{src: '~assets/main.less', lang: 'less'}, '~assets/juejin.css'],
   /*
   ** Customize the progress bar color
   */
@@ -29,9 +33,9 @@ module.exports = {
     bundleRenderer: {
       cache: require('lru-cache')({
         max: 1000,
-        maxAge: 1000 * 60 * 15
-      })
-    }
+        maxAge: 1000 * 60 * 15,
+      }),
+    },
   },
   build: {
     vendor: ['axios', 'element-ui'],
@@ -51,7 +55,7 @@ module.exports = {
   },
   plugins: [
     '~plugins/element-ui',
-    {src: '~plugins/dplayer',ssr:false},
-    {src:'~plugins/v-lazy'}
+    {src: '~plugins/dplayer', ssr: false},
+    {src: '~plugins/v-lazy'},
   ],
 }

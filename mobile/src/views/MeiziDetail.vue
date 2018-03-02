@@ -10,7 +10,7 @@
           <main class="container main-container">
           <div class="book-section-view">
             <div  class="links-box" :key="i" v-for="(pic,i) in data" >
-              <img :src="pic" alt="">
+              <img v-lazy="'http://qiniu.08tj.com/'+pic" alt="">
             </div>
           </div>
         </main>
@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     data() {
-      return this.$store.state.article.articleDetail.links
+      return this.$store.state.article.articleDetail.linksKey
     }
   },
   methods: {
