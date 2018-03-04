@@ -19,8 +19,8 @@ Vue.use(VueScroller)
 Vue.use(Ivue)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
-  error: './static/logo.png',
-  loading: './static/logo.png',
+  error: require('./assets/logo.png'),
+  loading: require('./assets/logo.png'),
   attempt: 1
 })
 var isDebugMode = process.env.NODE_ENV !== 'production'

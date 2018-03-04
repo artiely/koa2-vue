@@ -8,17 +8,17 @@
       <div class="detail-page meizi-detail">
         <scroller>
           <main class="container main-container">
-          <div class="book-section-view">
-            <div  class="links-box" :key="i" v-for="(pic,i) in data" >
-              <img v-lazy="'http://qiniu.08tj.com/'+pic" alt="">
+            <div class="book-section-view">
+              <div class="links-box" :key="i" v-for="(pic,i) in data">
+                <img v-lazy="'http://qiniu.08tj.com/'+pic" alt="">
+              </div>
             </div>
-          </div>
-        </main>
+          </main>
         </scroller>
-        <mt-popup v-model="popupVisible"   class="mint-popup-1">
-      <h1>佳句赏析</h1>
-      <p>大丈夫生于天地之间，当读圣贤之书，养浩然正气，仿天地之德以爱人，效圣贤之志以成业。纵使无法成千秋事业，当时正己修心，积善取恶，也得心地坦荡，身性纯洁，也不失位丈夫之举。</p>
-    </mt-popup>
+        <mt-popup v-model="popupVisible" class="mint-popup-1">
+          <h1>佳句赏析</h1>
+          <p>大丈夫生于天地之间，当读圣贤之书，养浩然正气，仿天地之德以爱人，效圣贤之志以成业。纵使无法成千秋事业，当时正己修心，积善取恶，也得心地坦荡，身性纯洁，也不失位丈夫之举。</p>
+        </mt-popup>
       </div>
     </div>
   </div>
@@ -58,8 +58,8 @@ export default {
 .mint-popup-1 {
   width: 200px;
   padding: 10px;
-  top:130px;
-  right:0px;
+  top: 130px;
+  right: 0px;
   h1 {
     font-size: 20px;
     color: #26a2ff;
