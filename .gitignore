@@ -6,8 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 /test/unit/coverage/
 /test/e2e/reports/
-/server/crawler/config.js
-/server/task/qiniu/config.js
 selenium-debug.log
 README.md
 
