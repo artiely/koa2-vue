@@ -18,6 +18,6 @@ deploy :
     path : /www/myblog/production
     ssh_options : StrictHostKeyChecking=no
     pre-deploy : git fetch --all
-    post-deploy : 'npm install && pm2 startOrRestart process.yml --env production'
+    post-deploy : 'npm install && pm2 startOrRestart server/process.yml --env production'
     env : 
       NODE_ENV : production
