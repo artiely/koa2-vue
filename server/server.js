@@ -4,7 +4,7 @@ import Koa from 'koa'
 import R from 'ramda'
 import chalk from 'chalk'
 import config from './config'
-var cors = require('koa2-cors')
+// var cors = require('koa2-cors')
 
 const MIDDLEWARES = ['db', 'router']
 
