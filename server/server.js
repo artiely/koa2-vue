@@ -27,7 +27,7 @@ async function start() {
   // if (process.env.NODE_ENV === 'development') {
   //    app.use(cors())
   // }
-   app.use(cors())
+  //  app.use(cors())
   // app.use(serve(resolve(__dirname , '../pc/dist')))
   await useMiddlewares(app)
   //等价于下面
