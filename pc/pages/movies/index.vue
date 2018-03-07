@@ -28,9 +28,9 @@
 </template>
 
 <script>
-import '../../node_modules/dplayer/dist/DPlayer.min.css'
+import '~/node_modules/dplayer/dist/DPlayer.min.css'
 // import axios from 'axios'
-import api from '../../api/api'
+import api from '~/api/api'
 export default {
   components: {
   },
