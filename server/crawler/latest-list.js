@@ -11,8 +11,7 @@ const sleep = time =>
 
   const browser = await puppeteer.launch({
     args: ['--no-sandbox'],
-    dumpio: false,
-    headless:false
+    dumpio: false
   })
 
   const page = await browser.newPage()
