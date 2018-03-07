@@ -45,7 +45,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+import api from '../../api/api'
 export default {
   components: {
   },
@@ -68,10 +69,11 @@ export default {
     }
   },
   async asyncData() {
-    let res = await axios.get('http://localhost:3001/api/v0/juejin/1/10')
+    // let res = await axios.get('/api/v0/juejin/1/10')
+    let res = await api.GET_JUEJIN({page:1,limit:8})
     return {
-      data: res.data.data,
-      count: res.data.count
+      data: res.data,
+      count: res.count
     }
   },
   methods: {
@@ -81,9 +83,10 @@ export default {
     },
     async handleCurrentChange(val) {
       console.log(`当前页: ${val}`)
-      let res = await axios.get(`http://localhost:3001/api/v0/juejin/${val}/10`)
-      this.data = res.data.data
-      this.count = res.data.count
+      // let res = await axios.get(`/api/v0/juejin/${val}/10`)
+      let res = await api.GET_JUEJIN({page:val,limit:8})
+      this.data = res.data
+      this.count = res.count
     }
   },
   created() { }

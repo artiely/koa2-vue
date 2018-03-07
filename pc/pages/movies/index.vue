@@ -29,7 +29,8 @@
 
 <script>
 import '../../node_modules/dplayer/dist/DPlayer.min.css'
-import axios from 'axios'
+// import axios from 'axios'
+import api from '../../api/api'
 export default {
   components: {
   },
@@ -40,18 +41,19 @@ export default {
     }
   },
   async asyncData(){
-   let res =  await axios.get('http://localhost:3001/api/v0/movies/1/8')
+    let res =  await api.GET_MOVIES({page:1,limit:8})
+  //  let res =  await axios.get('/api/v0/movies/1/8')
     return {
-        data: res.data.data,
-        count:res.data.count
+        data: res.data,
+        count:res.count
       }
   },
   methods: {
     async handleCurrentChange(val) {
       console.log(`当前页: ${val}`)
-      let res = await axios.get(`http://localhost:3001/api/v0/movies/${val}/8`)
-      this.data = res.data.data
-      this.count = res.data.count
+      let res = await axios.get(`/api/v0/movies/${val}/8`)
+      this.data = res.data
+      this.count = res.count
     },
     playvideo(data) {
       this.dialogVisible = true
