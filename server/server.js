@@ -4,7 +4,7 @@ const serve = require('koa-static')
 import R from 'ramda'
 import chalk from 'chalk'
 import config from './config'
-// var cors = require('koa2-cors')
+var cors = require('koa2-cors')
 
 const MIDDLEWARES = ['db', 'router']
 
@@ -27,7 +27,7 @@ async function start() {
   // if (process.env.NODE_ENV === 'development') {
   //    app.use(cors())
   // }
-  //  app.use(cors())
+   app.use(cors())
   app.use(serve(resolve(__dirname , '../pc/dist')))
   await useMiddlewares(app)
   //等价于下面
