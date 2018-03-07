@@ -3,10 +3,7 @@ const url = 'http://www.ui.cn/'
 void (async () => {
   console.log('开始了')
   const browser = await puppeteer.launch({
-    args: ['--no-sandbox'],
-    dumpio: false,
     timeout: 0,
-    headless: true,
   })
   console.log('等待页面打开')
   const page = await browser.newPage()

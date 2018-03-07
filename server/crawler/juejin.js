@@ -5,9 +5,6 @@ console.log('进入子进程')
   console.log('开始爬取')
   void (async () => {
     const browser = await puppeteer.launch({
-      args: ['--no-sandbox'],
-      dumpio: false,
-      headless: true,
     })
     console.log('打开页面')
     const page = await browser.newPage()

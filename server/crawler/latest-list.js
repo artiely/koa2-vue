@@ -10,8 +10,6 @@ const sleep = time =>
   console.log('Start visit the target page')
 
   const browser = await puppeteer.launch({
-    args: ['--no-sandbox'],
-    dumpio: false
   })
 
   const page = await browser.newPage()

@@ -12,8 +12,6 @@ const sleep = time =>
 process.on('message', async movies => {
   console.log('开始访问目标页面')
   const browser = await puppeteer.launch({
-    args: ['--no-sandbox'],
-    dumpio: false,
   })
   const page = await browser.newPage()
 
