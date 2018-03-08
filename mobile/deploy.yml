@@ -1,5 +1,5 @@
 apps:
-  - script   : mobile/start.js
+  - script   : start.js
     name : 'myblog-mobile'
     watch  : true
     env    :
