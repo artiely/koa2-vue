@@ -37,21 +37,22 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      title:''
+      title: ''
     }
   },
-  async asyncData(){
-    let res =  await api.GET_MOVIES({page:1,limit:8})
-  //  let res =  await axios.get('/api/v0/movies/1/8')
+  async asyncData() {
+    let res = await api.GET_MOVIES({ page: 1, limit: 8 })
+    //  let res =  await axios.get('/api/v0/movies/1/8')
     return {
-        data: res.data,
-        count:res.count
-      }
+      data: res.data,
+      count: res.count
+    }
   },
   methods: {
     async handleCurrentChange(val) {
       console.log(`当前页: ${val}`)
-      let res = await axios.get(`/api/v0/movies/${val}/8`)
+      // let res = await axios.get(`/api/v0/movies/${val}/8`)
+      let res = await api.GET_MOVIES({ page: val, limit: 8 })
       this.data = res.data
       this.count = res.count
     },
@@ -61,7 +62,7 @@ export default {
       setTimeout(() => {
         var player = null
         const video = `http://qiniu.08tj.com/${data.videoKey}`
-        const image = `http://qiniu.08tj.com/${data.coverKey}` 
+        const image = `http://qiniu.08tj.com/${data.coverKey}`
         if (!player) {
           player = new DPlayer({
             element: this.$refs.player,
