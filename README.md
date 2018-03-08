@@ -3,6 +3,12 @@
 > 包含前后端数据库及爬虫 包含前后端分离和服务端渲染 vue ,react,koa2,mongodb 
 > 开发中...
 
+pc预览地址 http://poorguy.me:8200/
+
+mobile预览地址 
+
+![](mobile.png)
+
 服务端 koa2系列  
 
 移动端 vue系列
@@ -27,7 +33,7 @@ mongodb 数据库
 
 mongoose 数据库模型
 
-puppeteer 爬虫
+puppeteer 爬虫实现
 
 七牛上传
 
