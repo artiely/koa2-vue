@@ -1,29 +1,31 @@
 import axios from 'axios'
 import router from '@/router'
 import Cookies from 'js-cookie'
-import isJSON from 'is-json'
+// import isJSON from 'is-json'
 export default function fetch(options) {
   return new Promise((resolve, reject) => {
     const instance = axios.create({
-      baseURL: '',
+      baseURL: 'http://poorguy.me:8200',
       headers: {},
-      transformResponse: [(data) => {
-        var flag = isJSON(data)
-        /* 后台的逻辑, 返回的是报错页面和登录页面就直接跳转登录 */
-        if (!flag) {
-          console.log('跑到登录逻辑了')
-          Cookies.remove('__userInfo')
-          router.replace({
-            name: 'Login'
-          })
-          return {
-            code: 1000,
-            msg: '请登录'
-          }
-        } else {
-          return JSON.parse(data)
-        }
-      }]
+      transformResponse: [
+      //   (data) => {
+      //   var flag = isJSON(data)
+      //   /* 后台的逻辑, 返回的是报错页面和登录页面就直接跳转登录 */
+      //   if (!flag) {
+      //     console.log('跑到登录逻辑了')
+      //     Cookies.remove('__userInfo')
+      //     router.replace({
+      //       name: 'Login'
+      //     })
+      //     return {
+      //       code: 1000,
+      //       msg: '请登录'
+      //     }
+      //   } else {
+      //     return JSON.parse(data)
+      //   }
+      // }
+      ]
     })
     instance.interceptors.request.use(
       config => {

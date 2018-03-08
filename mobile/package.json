@@ -20,6 +20,8 @@
     "babel-polyfill": "^6.26.0",
     "dplayer": "^1.22.2",
     "js-cookie": "^2.2.0",
+    "koa": "^2.5.0",
+    "koa-static": "^4.0.2",
     "mint-ui": "^2.2.13",
     "n-zepto": "^1.2.0",
     "pug": "^2.0.0-rc.4",
