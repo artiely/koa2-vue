@@ -2,7 +2,7 @@
   <div class="index">
     <mt-header fixed title="index"></mt-header>
     <div class="page-content" style="top:60px">
-      <scroller :on-refresh="refresh" :on-infinite="infinite" noDataText="没有啦哟 (#^.^#)">
+      <scroller ref="myScroller" :on-refresh="refresh" :on-infinite="infinite" noDataText="没有啦哟 (#^.^#)">
         <div  class="shijue-item" v-for="(item,i) in data" :key="i" @click="toDetail(item)">
          <img v-lazy="'http://qiniu.08tj.com/'+item.posterKey" alt="">
          <p> {{item.title}}</p>
@@ -26,6 +26,7 @@ export default {
   },
   methods: {
     toDetail(detail) {
+      this.getScrollPosition()
       this.$store.commit(types.ARTICLE_DETAIL, detail)
       this.$router.push('/shijuedetail')
     },
@@ -52,9 +53,27 @@ export default {
           cb && cb()
         }
       )()
+    },
+    getScrollPosition() {
+      let p = this.$refs.myScroller.getPosition()
+      sessionStorage.setItem('scrollTop', p.top)
+    },
+    setScrollerPosition() { // 设置滚动条位置
+      let y = sessionStorage.getItem('scrollTop')
+      if (!y) {
+        y = 0
+      }
+      setTimeout(() => {
+        this.$refs.myScroller.scrollTo(0, y, false)
+      }, 17)
     }
   },
   created() {
+  },
+  activated() {
+    this.$nextTick(() => {
+      this.setScrollerPosition()
+    })
   }
 }
 </script>

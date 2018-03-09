@@ -3,11 +3,11 @@
 > 包含前后端数据库及爬虫 包含前后端分离和服务端渲染 vue ,react,koa2,mongodb 
 > 开发中...
 
-pc预览地址 http://poorguy.me:8200/
+pc预览地址 http://08tj.com
 
 mobile预览地址 
 
-![](mobile.png)
+![](m.png)
 
 服务端 koa2系列  
 

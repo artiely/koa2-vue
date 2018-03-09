@@ -2,8 +2,8 @@
   <div class="index">
     <mt-header  title="index"></mt-header>
     <div class="page-content">
-      <scroller :on-refresh="refresh" :on-infinite="infinite">
-        <ArticleItem :data="data" @to-detail="toDetail"></ArticleItem>
+      <scroller ref="myScroller" :on-refresh="refresh" :on-infinite="infinite">
+        <ArticleItem :data="data" @to-detail="toDetail" @getsp="getScrollPosition"></ArticleItem>
       </scroller>
     </div>
   </div>
@@ -45,6 +45,19 @@ export default {
         cb && cb()
       })()
     },
+    getScrollPosition() {
+      let p = this.$refs.myScroller.getPosition()
+      sessionStorage.setItem('scrollTop', p.top)
+    },
+    setScrollerPosition() { // 设置滚动条位置
+      let y = sessionStorage.getItem('scrollTop')
+      if (!y) {
+        y = 0
+      }
+      setTimeout(() => {
+        this.$refs.myScroller.scrollTo(0, y, false)
+      }, 17)
+    },
     refresh(done) {
       this.params.page = 1
       this.getData(() => {
@@ -56,6 +69,11 @@ export default {
         done(true)
       })
     }
+  },
+  activated() {
+    this.$nextTick(() => {
+      this.setScrollerPosition()
+    })
   }
 }
 </script>

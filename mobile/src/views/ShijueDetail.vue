@@ -52,5 +52,4 @@ export default {
   background: #fff;
   overflow: hidden;
 }
-
 </style>

@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     toDetail(i, event) {
+      this.$emit('getsp')
       this.$emit('to-detail', i, event)
     }
   },
