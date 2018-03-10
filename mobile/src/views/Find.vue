@@ -2,7 +2,7 @@
   <div class="find">
     <mt-header  title="find"></mt-header>
     <div class="page-content">
-      <p v-for="i in 20" :key="i">{{i}}find</p>
+      开发中...
     </div>
   </div>
 </template>
