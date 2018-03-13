@@ -5,8 +5,8 @@
 
 pc预览地址 http://08tj.com
 
-mobile预览地址 【内有福利】
-
+mobile预览地址 http://m.08tj.com 【内有福利】
+可扫码   
 ![](m.png)
 
 服务端 koa2系列  
@@ -40,6 +40,8 @@ puppeteer 爬虫实现
 开发模式包含前后端分离和服务端渲染     
 
 linux ubuntu16
+
+nginx
 
 笔记：
 
