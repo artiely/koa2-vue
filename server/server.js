@@ -5,6 +5,7 @@ import R from 'ramda'
 import chalk from 'chalk'
 import config from './config'
 var cors = require('koa2-cors')
+var schedule = require('node-schedule')
 
 const MIDDLEWARES = ['db', 'router']
 
@@ -19,7 +20,14 @@ const useMiddlewares = app => {
 // 其实上面的代码就等价于下面 使用ramda将引入与使用结合为一个函数
 //  const {database} = require('./middleware/db')
 //  const {router} = require('./middleware/router')
+// 定时任务
+function scheduleCronstyle(){
+    schedule.scheduleJob('30 1 1 * * *', function() {
+      console.log('scheduleCronstyle:' + new Date())
+    }) 
+}
 
+scheduleCronstyle()
  
 async function start() {
   const app = new Koa()
@@ -27,7 +35,7 @@ async function start() {
   // if (process.env.NODE_ENV === 'development') {
   //    app.use(cors())
   // }
-   app.use(cors())
+  app.use(cors())
   app.use(serve(resolve(__dirname , '../pc/dist')))
   await useMiddlewares(app)
   //等价于下面
