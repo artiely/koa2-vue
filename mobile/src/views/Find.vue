@@ -35,7 +35,7 @@ export default {
         limit: 3,
         ids: null
       },
-      idsStr: ''
+      idsStr: false
     }
   },
   methods: {
@@ -47,7 +47,6 @@ export default {
       this.tags = res.data
     },
     async getArticle(cb) {
-      this.idsStr = JSON.stringify(this.params.ids)
       let res = await this.$api.GET_JUEJIN(this.params)
       if (this.params.page === 1) {
         this.data = res.data
@@ -61,12 +60,9 @@ export default {
       cb && cb()
     },
     showArticle(ids) {
+      this.params.page = 1
       this.params.ids = ids
       this.popupVisible = true
-      if (JSON.stringify(this.params.ids) === this.idsStr) {
-        console.log('一样滴')
-        return
-      }
       this.getArticle()
     },
     toDetail(detail) {
