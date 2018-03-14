@@ -7,9 +7,9 @@ import fetch from './fetch'
  */
 const GET_JUEJIN = params => {
   return fetch({
-    url: `/api/v0/juejin/${params.page}/${params.limit}`,
+    url: `/api/v0/juejin`,
     method: 'get',
-    params: '',
+    params: params,
   })
 }
 
