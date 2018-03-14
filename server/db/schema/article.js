@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const Mixed = Schema.Types.Mixed
+const {Mixed,ObjectId} = Schema.Types
 
 const articleSchema = new Schema({
   avatar: String,
@@ -8,10 +8,16 @@ const articleSchema = new Schema({
   title: String,
   id: {
     type: String,
-    unique:true,
-    require:true
+    unique: true,
+    require: true,
   },
   tags: [String],
+  tagsId: [
+    {
+      type: ObjectId,
+      ref: 'Tag',
+    }
+  ],
   create_time: Mixed,
   content: String,
   meta: {

@@ -17,7 +17,7 @@ export default class MovieRouter {
   }
 
   @Get('/detail/:id')
-  async getMovieDetail(ctx, next) {
+  async getMovieDetail (ctx, next) {
     const id = ctx.params.id
     const movie = await getSingleMovie(id)
     const relativeMovies = await getRelativeMovies(movie)

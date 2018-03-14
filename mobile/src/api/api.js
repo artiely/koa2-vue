@@ -20,13 +20,10 @@ const LOGIN = params => {
  * 获取掘金的文章
  * @param {Number} page
  * @param {Number} limit
+ * @param {Number} ids 同一个tag的文章id
  */
 const GET_JUEJIN = params => {
-  return fetch({
-    url: `/api/v0/juejin/${params.page}/${params.limit}`,
-    method: 'get',
-    params: ''
-  })
+  return fetch({url: `/api/v0/juejin`, method: 'get', params: params})
 }
 
 /**
@@ -68,12 +65,26 @@ const GET_SHIJUE = params => {
   })
 }
 
+/**
+ * 获取标签
+ * @param {Number} page
+ * @param {Number} limit
+ */
+const GET_TAGS = params => {
+  return fetch({
+    url: `/api/v0/tags/${params.page}/${params.limit}`,
+    method: 'get',
+    params: ''
+  })
+}
+
 const apiList = {
   LOGIN,
   GET_JUEJIN,
   GET_MEIZI,
   GET_MOVIES,
-  GET_SHIJUE
+  GET_SHIJUE,
+  GET_TAGS
 }
 
 export default apiList

@@ -50,9 +50,9 @@ body {
   padding: 15px;
   color: #777;
 }
-.find {
-  background: rgb(62, 241, 151);
-}
+// .find {
+//   background: rgb(62, 241, 151);
+// }
 .order {
   background: rgb(14, 80, 110);
 }
