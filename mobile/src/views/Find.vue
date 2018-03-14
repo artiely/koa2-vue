@@ -33,7 +33,8 @@ export default {
       params: {
         page: 1,
         limit: 4
-      }
+      },
+      idsStr: ''
     }
   },
   methods: {
@@ -46,6 +47,10 @@ export default {
     },
     async showArticle(ids) {
       this.popupVisible = true
+      if (JSON.stringify(ids) === this.idsStr) {
+        return
+      } 
+      this.idsStr = JSON.stringify(ids)
       let res = await this.$api.GET_JUEJIN({
         page: 1,
         limit: 10,
