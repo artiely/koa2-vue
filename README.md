@@ -43,6 +43,8 @@ linux ubuntu16
 
 nginx
 
+自动化发布部署
+
 笔记：
 
 1. [移动端环境搭建](./notes/移动端环境搭建.md)
