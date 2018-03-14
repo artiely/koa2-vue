@@ -32,7 +32,8 @@ export default {
       data: [],
       params: {
         page: 1,
-        limit: 4
+        limit: 3,
+        ids: null
       },
       idsStr: ''
     }
@@ -45,19 +46,28 @@ export default {
       })
       this.tags = res.data
     },
-    async showArticle(ids) {
+    async getArticle(cb) {
+      this.idsStr = JSON.stringify(this.params.ids)
+      let res = await this.$api.GET_JUEJIN(this.params)
+      if (this.params.page === 1) {
+        this.data = res.data
+        this.params.page++
+      } else {
+        if (res.data.length > 0) {
+          this.data = this.data.concat(res.data)
+          this.params.page++
+        }
+      }
+      cb && cb()
+    },
+    showArticle(ids) {
+      this.params.ids = ids
       this.popupVisible = true
-      if (JSON.stringify(ids) === this.idsStr) {
+      if (JSON.stringify(this.params.ids) === this.idsStr) {
+        console.log('一样滴')
         return
-      } 
-      this.idsStr = JSON.stringify(ids)
-      let res = await this.$api.GET_JUEJIN({
-        page: 1,
-        limit: 10,
-        ids: ids
-      })
-      this.data = res.data
-      console.log(res)
+      }
+      this.getArticle()
     },
     toDetail(detail) {
       this.$store.commit(types.ARTICLE_DETAIL, detail)
@@ -65,12 +75,12 @@ export default {
     },
     refresh(done) {
       this.params.page = 1
-      this.getData(() => {
+      this.getArticle(() => {
         done()
       })
     },
     infinite(done) {
-      this.getData(() => {
+      this.getArticle(() => {
         done(true)
       })
     },
