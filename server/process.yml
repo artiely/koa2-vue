@@ -1,5 +1,5 @@
 apps:
-  - script   : server/start.js
+  - script   : start.js
     name : 'myblog-server'
     watch  : true
     env    :
