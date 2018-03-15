@@ -23,7 +23,7 @@ const LOGIN = params => {
  * @param {Number} ids 同一个tag的文章id
  */
 const GET_JUEJIN = params => {
-  return fetch({url: `/api/v0/juejin`, method: 'get', params: params})
+  return fetch({url: `/api/v0/juejin`, method: 'post', params: params})
 }
 
 /**

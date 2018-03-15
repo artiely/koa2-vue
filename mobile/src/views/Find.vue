@@ -10,7 +10,7 @@
       </scroller>
     </div>
     <mt-popup v-model="popupVisible" position="left" style="width:80%;height:100%">
-      <scroller ref="myScroller" :on-refresh="refresh" :on-infinite="infinite">
+      <scroller ref="myScroller"  :on-infinite="infinite">
         <ArticleItem :data="data" @to-detail="toDetail" @getsp="getScrollPosition"></ArticleItem>
       </scroller>
     </mt-popup>
@@ -32,7 +32,7 @@ export default {
       data: [],
       params: {
         page: 1,
-        limit: 3,
+        limit: 4,
         ids: null
       },
       idsStr: false

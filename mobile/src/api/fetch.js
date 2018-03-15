@@ -3,7 +3,9 @@ import router from '@/router'
 import Cookies from 'js-cookie'
 // import isJSON from 'is-json'
 var isProduction = process.env.NODE_ENV === 'production'
-const baseURL = isProduction ? 'http://poorguy.me:8200' : 'http://localhost:3001'
+const baseURL = isProduction
+  ? 'http://poorguy.me:8200'
+  : 'http://localhost:3001'
 export default function fetch(options) {
   return new Promise((resolve, reject) => {
     const instance = axios.create({
@@ -34,18 +36,18 @@ export default function fetch(options) {
         return config
       },
       error => {
-        console.error(`来自请求的错误:${error}`)
+        // console.error(`来自请求的错误:${error}`)
         return Promise.reject(error)
       }
     )
 
     instance.interceptors.response.use(
       response => {
-        console.log('响应结果', response)
+        // console.log('响应结果', response)
         return response
       },
       error => {
-        console.error(`来自响应的的错误:${error}`)
+        // console.error(`来自响应的的错误:${error}`)
         return Promise.reject(error)
       }
     )
