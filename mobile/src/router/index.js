@@ -16,6 +16,7 @@ const Movie = () => import('@/views/fun/Movie')
 const ShijueDetail = () => import('@/views/ShijueDetail')
 const MeiziDetail = () => import('@/views/MeiziDetail')
 const MovieDetail = () => import('@/views/MovieDetail')
+const Eva = () => import('@/views/Eva')
 
 Vue.use(Router)
 Router.prototype.back = function() {
@@ -111,6 +112,11 @@ const router = new Router({
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/eva',
+      name: 'Eva',
+      component: Eva
     }
   ]
 })
